@@ -1,0 +1,21 @@
+Sub autoData()
+Set IE = CreateObject(&quot;InternetExplorer.application&quot;)
+IE.Visible = True
+strURL = &quot;https://www.automationandagile.com/p/sample-form.html&quot;
+IE.Navigate strURL
+Do While IE.Busy
+   Application.Wait DateAdd(&quot;s&quot;, 4, Now)
+Loop
+ Set doc = IE.Document
+ doc.getElementsByName(&quot;fname&quot;)(0).Value = &quot;Niro3sha&quot;
+doc.getElementsByClassName(&quot;txtbox&quot;) (1).Value = &quot; VBA Automation&quot;
+ doc.getElementsByName(&quot;gender&quot;)(1).Click
+ doc.getElementsByName(&quot;hobbies&quot;)(1).Click
+
+ doc.getElementsByName(&quot;hobbies&quot;)(3).Click
+ doc.getElementsByClassName(&quot;ddl&quot;)(0).Value = &quot;Service&quot;
+ doc.getElementsByName(&quot;day&quot;)(0).Value = &quot;12&quot;
+ doc.getElementsByClassName(&quot;ddl&quot;)(2).Value = &quot;2&quot;
+ doc.getElementsByName(&quot;day&quot;)(1).Value = &quot;1925&quot;
+ doc.getElementsByClassName(&quot;btn&quot;)(0).Click
+End Sub
